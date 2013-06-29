@@ -24,12 +24,18 @@
     <ClInclude Include="femaleRecord.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="personInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="maleRecord.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="femaleRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="personInfo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

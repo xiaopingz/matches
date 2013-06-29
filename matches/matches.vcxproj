@@ -79,10 +79,12 @@
     <ClInclude Include="femaleRecord.h" />
     <ClInclude Include="head_info.h" />
     <ClInclude Include="maleRecord.h" />
+    <ClInclude Include="personInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="femaleRecord.cpp" />
     <ClCompile Include="maleRecord.cpp" />
+    <ClCompile Include="personInfo.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
