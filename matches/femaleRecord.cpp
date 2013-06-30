@@ -27,4 +27,5 @@ female_data	femaleRecord::getElement(vector<female_data>::size_type i)
 
 int			femaleRecord::addVoteInfo(int idToVote)
 {
+	return 1;
 }

@@ -14,7 +14,7 @@ personInfo::~personInfo(void)
 {
 }
 
-void	personInfo::showInfo(personInfo	pi)
+void	personInfo::showInfo()
 {
 	std::cout<<"ID:"<<m_userID<<" INFO:"<<m_info_wealth<<","<<m_info_look<<","<<m_info_charactor<<" EXPERCT:"<<m_ratio_wealth<<","<<m_ratio_look<<","<<m_ratio_charactor<<std::endl;
 }

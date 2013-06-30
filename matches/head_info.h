@@ -1,3 +1,4 @@
+#pragma once
 #include"personInfo.h"
 #include<map>
 #include<vector>

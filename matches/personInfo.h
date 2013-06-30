@@ -3,11 +3,11 @@ class personInfo
 {
 public:
 	personInfo(void);
-	personInfo(int id, int wealth, int look, int charactor, int rw, int rl, int rc);
+	personInfo(int id,int wealth,int look,int charactor,int rw,int rl, int rc);
 	~personInfo(void);
 
 public:
-	void	showInfo(personInfo	pi);
+	void	showInfo();
 	void	assign(int id, int wealth, int look, int charactor, int rw, int rl, int rc);
 	int		calculateDegree(personInfo target);	//计算单个满意度，参数为被计算的对象
 	int		getUsrID();
