@@ -2,11 +2,11 @@
 #include<map>
 #include<vector>
 using std::vector;
-using std::map;
+using std::multimap;
 
 typedef struct _MALE_DATA{
 	personInfo		m_maleInfo;		//male person basic information
-	map<int,int>	m_candidate;	//every female's satisfied degree
+	multimap<int,int>	m_candidate;	//every female's satisfied degree
 }male_data;
 
 typedef struct _FEMALE_DATA{
