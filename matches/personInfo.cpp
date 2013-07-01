@@ -1,25 +1,25 @@
-#include "personInfo.h"
+#include "PersonInfo.h"
 #include<iostream>
 
-personInfo::personInfo(void)
+PersonInfo::PersonInfo(void)
 {
 }
 
-personInfo::personInfo(int id, int wealth, int look, int charactor, int rw, int rl, int rc)
+PersonInfo::PersonInfo(int id, int wealth, int look, int charactor, int rw, int rl, int rc)
 	:m_userID(id),m_info_wealth(wealth),m_info_look(look),m_info_charactor(charactor),m_ratio_wealth(rw),m_ratio_look(rl),m_ratio_charactor(rc)
 {
 }
 
-personInfo::~personInfo(void)
+PersonInfo::~PersonInfo(void)
 {
 }
 
-void	personInfo::showInfo()
+void	PersonInfo::showInfo()
 {
 	std::cout<<"ID:"<<m_userID<<" INFO:"<<m_info_wealth<<","<<m_info_look<<","<<m_info_charactor<<" EXPERCT:"<<m_ratio_wealth<<","<<m_ratio_look<<","<<m_ratio_charactor<<std::endl;
 }
 
-void	personInfo::assign(int id, int wealth, int look, int charactor, int rw, int rl, int rc)
+void	PersonInfo::assign(int id, int wealth, int look, int charactor, int rw, int rl, int rc)
 {
 	m_userID		=	id;
 	m_info_wealth	=	wealth;		
@@ -30,28 +30,33 @@ void	personInfo::assign(int id, int wealth, int look, int charactor, int rw, int
 	m_ratio_charactor	=	rc;
 }
 
-int		personInfo::calculateDegree(personInfo target)
+int		PersonInfo::calculateDegree(PersonInfo target)
 {
 	int satisfiedDegree	= m_info_wealth * target.getRW() + m_info_look * target.getRL() + m_info_charactor * target.getRC();
 	return	satisfiedDegree;
 }
 
-int		personInfo::getUsrID()
+int		PersonInfo::sumOfInfo()
+{
+	return m_info_charactor+m_info_look+m_info_wealth;
+}
+
+int		PersonInfo::getUsrID()
 {
 	return	m_userID;
 }
 
-int personInfo::getRW()
+int PersonInfo::getRW()
 {
 	return	m_ratio_wealth;
 }
 
-int personInfo::getRL()
+int PersonInfo::getRL()
 {
 	return	m_ratio_look;
 }
 
-int personInfo::getRC()
+int PersonInfo::getRC()
 {
 	return	m_ratio_charactor;
 }

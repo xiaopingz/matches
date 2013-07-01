@@ -1,15 +1,16 @@
 #pragma once
-class personInfo
+class PersonInfo
 {
 public:
-	personInfo(void);
-	personInfo(int id,int wealth,int look,int charactor,int rw,int rl, int rc);
-	~personInfo(void);
+	PersonInfo(void);
+	PersonInfo(int id,int wealth,int look,int charactor,int rw,int rl, int rc);
+	~PersonInfo(void);
 
 public:
 	void	showInfo();
 	void	assign(int id, int wealth, int look, int charactor, int rw, int rl, int rc);
-	int		calculateDegree(personInfo target);	//计算单个满意度，参数为被计算的对象
+	int		calculateDegree(PersonInfo target);	//计算单个满意度，参数为被计算的对象
+	int		sumOfInfo();
 	int		getUsrID();
 	int		getRW();	//获取期望对象的对应参数的比例
 	int		getRL();
