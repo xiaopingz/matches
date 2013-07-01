@@ -26,7 +26,7 @@ void	MaleRecord::addMaleRecord(int id, int wealth, int look, int charactor, int 
 	m_maleRecord.push_back(maleData);
 }
 
-void	MaleRecord::addDegree(FemaleRecord fr)
+void	MaleRecord::addDegree(FemaleRecord& fr)
 {
 	for(vector<male_data>::size_type i = 0;i!=m_maleRecord.size();++i)
 	{
@@ -40,7 +40,7 @@ void	MaleRecord::addDegree(FemaleRecord fr)
 }
 
 
-void	MaleRecord::vote(FemaleRecord fr)
+void	MaleRecord::vote(FemaleRecord& fr)
 {
 	for(vector<male_data>::size_type i = 0;i!=m_maleRecord.size();++i)
 	{

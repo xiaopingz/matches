@@ -66,7 +66,7 @@ vector<female_data>::iterator	FemaleRecord::getHotest()
 	return itMax;
 }
 
-int		FemaleRecord::getMatchedId( vector<female_data>::iterator it, MaleRecord mr )
+int		FemaleRecord::getMatchedId( vector<female_data>::iterator it, MaleRecord& mr )
 {
 	vector<int>		vCandidate	=	it->m_candidate;
 	vector<int>::size_type ix=0;
@@ -98,4 +98,18 @@ int		FemaleRecord::getMatchedId( vector<female_data>::iterator it, MaleRecord mr
 		}
 	}
 	return	idOfMax;
+}
+
+void			FemaleRecord::deleteMatched( vector<female_data>::iterator it, MaleRecord& mr )
+{
+	vector<int>		vCandidate	=	it->m_candidate;
+	vector<int>::size_type ix=0;
+	int			idMale, idFemale;
+	idFemale	=	it->m_femaleInfo.getUsrID();
+
+	for( ; ix<vCandidate.size(); ++ix )
+	{
+		idMale	=	vCandidate[ix];
+		mr.deleteCandidate(idMale,idFemale);
+	}
 }
