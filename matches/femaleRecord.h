@@ -17,7 +17,7 @@ public:
 	int				addVoteInfo(int idToVote,int idOfVote);
 	vector<female_data>::iterator	getHotest();	//获得投票最多的女性
 	int				getMatchedId( vector<female_data>::iterator it, MaleRecord& mr );	//对投票最多的女性选择一个男性配对,return the ID of the man
-	void			deleteMatched( vector<female_data>::iterator it, MaleRecord& mr );	//删除已配对的相关所有信息。
+	void			deleteMatched( vector<female_data>::iterator it, int idMaleMatched, MaleRecord& mr );	//删除已配对的相关所有信息。
 
 protected:
 	vector<female_data>	m_femaleRecord;

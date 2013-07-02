@@ -100,11 +100,11 @@ int		FemaleRecord::getMatchedId( vector<female_data>::iterator it, MaleRecord& m
 	return	idOfMax;
 }
 
-void			FemaleRecord::deleteMatched( vector<female_data>::iterator it, MaleRecord& mr )
+void			FemaleRecord::deleteMatched( vector<female_data>::iterator it, int idMaleMatched, MaleRecord& mr )
 {
 	vector<int>		vCandidate	=	it->m_candidate;
 	vector<int>::size_type ix=0;
-	int			idMale, idFemale;
+	int		idMale,	idFemale	=	it->m_femaleInfo.getUsrID();
 	idFemale	=	it->m_femaleInfo.getUsrID();
 
 	for( ; ix<vCandidate.size(); ++ix )
@@ -112,4 +112,7 @@ void			FemaleRecord::deleteMatched( vector<female_data>::iterator it, MaleRecord
 		idMale	=	vCandidate[ix];
 		mr.deleteCandidate(idMale,idFemale);
 	}
+	mr.deleteMaleRecord(idMaleMatched);
+	m_femaleRecord.erase(it);
+
 }

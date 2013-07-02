@@ -81,3 +81,31 @@ void	MaleRecord::vote(FemaleRecord& fr)
 		fr.addVoteInfo(voteId,idOfVote);			//在女士信息表中给ID女士投票
 	}
 }
+
+void	MaleRecord::deleteCandidate(int idMale,int idFemale)
+{
+	for( vector<male_data>::iterator iterVec = m_maleRecord.begin();iterVec!=m_maleRecord.end();++iterVec )
+	{
+		if( iterVec->m_maleInfo.getUsrID == idMale )
+		{
+			multimap<int,int>::iterator iterMultiMap = iterVec->m_candidate.find((--(iterVec->m_candidate.end()))->first);
+			while( iterMultiMap!= iterVec->m_candidate.end() )
+			{
+				if( iterMultiMap->second == idFemale )
+					iterVec->m_candidate.erase(iterMultiMap);
+				else ++iterMultiMap;
+			}
+		}
+	}
+}
+
+void	MaleRecord::deleteMaleRecord(int idMaleMatched)
+{
+	for( vector<male_data>::iterator iterVec = m_maleRecord.begin();iterVec!=m_maleRecord.end();++iterVec )
+	{
+		if( iterVec->m_maleInfo.getUsrID == idMaleMatched )
+		{
+			m_maleRecord.erase(iterVec);
+		}
+	}
+}
