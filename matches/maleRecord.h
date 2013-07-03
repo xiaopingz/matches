@@ -1,6 +1,6 @@
 #pragma once
 #include"head_info.h"
-#include"FemaleRecord.h"
+ class FemaleRecord;
 
 class MaleRecord
 {

@@ -29,7 +29,7 @@ female_data	FemaleRecord::getElementById(int usrId)
 {
 	for(vector<female_data>::size_type i = 0;i!=m_femaleRecord.size();++i)
 	{
-		if( m_femaleRecord[i].m_femaleInfo.getUsrID == usrId )
+		if( m_femaleRecord[i].m_femaleInfo.getUsrID() == usrId )
 			return m_femaleRecord[i];
 	}
 }
@@ -40,7 +40,7 @@ int			FemaleRecord::addVoteInfo(int idToVote,int idOfVote)
 	for( ix = 0;ix!=m_femaleRecord.size();++ix)
 	{
 		PersonInfo	fpi	=	m_femaleRecord[ix].m_femaleInfo;
-		if(fpi.getUsrID == idToVote)
+		if(fpi.getUsrID() == idToVote)
 		{
 			m_femaleRecord[ix].m_candidate.push_back(idOfVote);
 			return 1;
@@ -81,11 +81,11 @@ int		FemaleRecord::getMatchedId( vector<female_data>::iterator it, MaleRecord& m
 		{
 			idOfMax	=	idNow;
 			idMin	=	idNow;
-			sumMax	=	mr.getElementById(idNow).m_maleInfo.sumOfInfo;
+			sumMax	=	mr.getElementById(idNow).m_maleInfo.sumOfInfo();
 		}
 		if( degree==degreeMax )
 		{
-			int sumNow	=	mr.getElementById(idNow).m_maleInfo.sumOfInfo;
+			int sumNow	=	mr.getElementById(idNow).m_maleInfo.sumOfInfo();
 			if(sumNow>sumMax)
 			{
 				idOfMax	=	idNow;

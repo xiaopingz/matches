@@ -1,4 +1,5 @@
 #include "MaleRecord.h"
+#include"femaleRecord.h"
 #include<utility>
 using std::make_pair;
 
@@ -14,7 +15,7 @@ male_data	MaleRecord::getElementById(int id)
 {
 	for(vector<male_data>::size_type i = 0;i!=m_maleRecord.size();++i)
 	{
-		if( m_maleRecord[i].m_maleInfo.getUsrID == id )
+		if( m_maleRecord[i].m_maleInfo.getUsrID() == id )
 			return m_maleRecord[i];
 	}
 }
@@ -48,7 +49,7 @@ void	MaleRecord::vote(FemaleRecord& fr)
 		multimap<int,int>	mmCandidate	=	md.m_candidate;	//得到该男性用户对女性的满意度map	
 		multimap<int,int>::iterator	im	=	--mmCandidate.end();	//获取最后一个元素的迭代器（即满意度最大的元素）
 		multimap<int,int>::size_type ix	=	mmCandidate.count((*im).first);	//查询此满意度的元素有几个
-		int		idOfVote	=	m_maleRecord[i].m_maleInfo.getUsrID;
+		int		idOfVote	=	m_maleRecord[i].m_maleInfo.getUsrID();
 		int		voteId		=	(*im).second;
 		
 		if( ix>1 )
@@ -86,7 +87,7 @@ void	MaleRecord::deleteCandidate(int idMale,int idFemale)
 {
 	for( vector<male_data>::iterator iterVec = m_maleRecord.begin();iterVec!=m_maleRecord.end();++iterVec )
 	{
-		if( iterVec->m_maleInfo.getUsrID == idMale )
+		if( iterVec->m_maleInfo.getUsrID() == idMale )
 		{
 			multimap<int,int>::iterator iterMultiMap = iterVec->m_candidate.find((--(iterVec->m_candidate.end()))->first);
 			while( iterMultiMap!= iterVec->m_candidate.end() )
@@ -103,7 +104,7 @@ void	MaleRecord::deleteMaleRecord(int idMaleMatched)
 {
 	for( vector<male_data>::iterator iterVec = m_maleRecord.begin();iterVec!=m_maleRecord.end();++iterVec )
 	{
-		if( iterVec->m_maleInfo.getUsrID == idMaleMatched )
+		if( iterVec->m_maleInfo.getUsrID() == idMaleMatched )
 		{
 			m_maleRecord.erase(iterVec);
 		}
