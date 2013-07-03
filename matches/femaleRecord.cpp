@@ -13,6 +13,7 @@ void	FemaleRecord::addFemaleRecord(int id, int wealth, int look, int charactor, 
 {
 	female_data	femaleData;
 	femaleData.m_femaleInfo.assign(id,wealth,look,charactor,rw,rl,rc);
+	m_femaleRecord.push_back(femaleData);
 }
 
 vector<female_data>::size_type FemaleRecord::size()
@@ -54,9 +55,9 @@ vector<female_data>::iterator	FemaleRecord::getHotest()
 {
 	vector<female_data>::iterator	iter,	itMax;
 	vector<int>::size_type			szMax=0,	szTmp;
-	for( ;iter!=m_femaleRecord.end();++iter )
+	for( iter=m_femaleRecord.begin();iter!=m_femaleRecord.end();++iter )
 	{
-		szTmp	=	iter->m_candidate.size();
+		szTmp	=	(iter->m_candidate).size();
 		if( szTmp>szMax )
 		{
 			szMax	=	szMax;
@@ -104,7 +105,7 @@ void			FemaleRecord::deleteMatched( vector<female_data>::iterator it, int idMale
 {
 	vector<int>		vCandidate	=	it->m_candidate;
 	vector<int>::size_type ix=0;
-	int		idMale,	idFemale	=	it->m_femaleInfo.getUsrID();
+	int		idMale,	idFemale;
 	idFemale	=	it->m_femaleInfo.getUsrID();
 
 	for( ; ix<vCandidate.size(); ++ix )

@@ -32,6 +32,7 @@ int main()
 	FemaleRecord	fmr;
 	MaleRecord		mr;
 	ifstream fFilePlayer("../players.txt"),fFileMale("../male.txt"),fFileFemale("../female.txt");
+	ofstream fFileMatchedStore("../matched.txt");
 
 	//读取文件，生成初始信息。
 	int gender,id,w,l,c,rw,rl,rc;
@@ -66,14 +67,19 @@ int main()
 
 	mr.addDegree(fmr);
 	
-	//一趟配对
-	mr.vote(fmr);
-	vector<female_data>::iterator itHot	=	fmr.getHotest();
-	int idMan	=	fmr.getMatchedId(itHot,mr);
-	(fmr.getHotest())->m_femaleInfo.showInfo();
-	mr.getElementById(idMan).m_maleInfo.showInfo();
-	
+	for(int i = 0;i<100;++i)
+	{
+		//一趟配对
+		mr.vote(fmr);
+		vector<female_data>::iterator itHot	=	fmr.getHotest();
+		int idMan	=	fmr.getMatchedId(itHot,mr);
+		(fmr.getHotest())->m_femaleInfo.storeInfo(fFileMatchedStore);
+		mr.getElementById(idMan).m_maleInfo.storeInfo(fFileMatchedStore);
+		fmr.deleteMatched(itHot,idMan,mr);
+	}
+		
 	fFilePlayer.close();
 	fFileFemale.close();
 	fFileMale.close();
+	fFileMatchedStore.close();
 }

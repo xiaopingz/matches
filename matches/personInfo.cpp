@@ -19,6 +19,11 @@ void	PersonInfo::showInfo()
 	std::cout<<"ID:"<<m_userID<<" INFO:"<<m_info_wealth<<","<<m_info_look<<","<<m_info_charactor<<" EXPERCT:"<<m_ratio_wealth<<","<<m_ratio_look<<","<<m_ratio_charactor<<std::endl;
 }
 
+void	PersonInfo::storeInfo(ofstream& fs)
+{
+	fs<<"ID:"<<m_userID<<" INFO:"<<m_info_wealth<<","<<m_info_look<<","<<m_info_charactor<<" EXPERCT:"<<m_ratio_wealth<<","<<m_ratio_look<<","<<m_ratio_charactor;
+}
+
 void	PersonInfo::assign(int id, int wealth, int look, int charactor, int rw, int rl, int rc)
 {
 	m_userID		=	id;

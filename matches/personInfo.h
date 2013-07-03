@@ -1,4 +1,7 @@
 #pragma once
+#include<fstream>
+using std::ofstream;
+
 class PersonInfo
 {
 public:
@@ -8,6 +11,7 @@ public:
 
 public:
 	void	showInfo();
+	void	storeInfo(ofstream& fs);
 	void	assign(int id, int wealth, int look, int charactor, int rw, int rl, int rc);
 	int		calculateDegree(PersonInfo target);	//计算单个满意度，参数为被计算的对象
 	int		sumOfInfo();
