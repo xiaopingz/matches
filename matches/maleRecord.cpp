@@ -89,21 +89,17 @@ void	MaleRecord::vote(FemaleRecord& fr)
 	}
 }
 
-void	MaleRecord::deleteCandidate(int idMale,int idFemale)
+void	MaleRecord::deleteCandidate(int idFemale)
 {
 	for( vector<male_data>::iterator iterVec = m_maleRecord.begin();iterVec!=m_maleRecord.end();++iterVec )
 	{
-		if( iterVec->m_maleInfo.getUsrID() == idMale )
+		for( multimap<int,int>::iterator	im	=	iterVec->m_candidate.begin();im != iterVec->m_candidate.end();++im )
 		{
-			multimap<int,int>::iterator iterMultiMap = iterVec->m_candidate.find((--(iterVec->m_candidate.end()))->first);
-			multimap<int,int>::iterator iterMultiMapTmp = iterMultiMap;
-			while( iterMultiMapTmp!= iterVec->m_candidate.end() )
+			if( im->second == idFemale )
 			{
-				++iterMultiMapTmp;
-				if( iterMultiMap->second == idFemale )
-					iterVec->m_candidate.erase(iterMultiMap);
+				iterVec->m_candidate.erase(im);
+				break;
 			}
-			break;
 		}
 	}
 }

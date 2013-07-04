@@ -1,6 +1,6 @@
 
 #include<iostream>
-#include<memory>
+//#include<memory>
 #include<vector>
 #include"PersonInfo.h"
 #include"maleRecord.h"
@@ -17,17 +17,6 @@ int main()
 	vp.push_back(p);
 	personInfo_ptr pRead	=	*vp.begin();
 	pRead->showInfo();*/
-
-	/*ifstream fFileMan("../male.txt");
-	int id,w,l,c,rw,rl,rc;
-	char t;
-	fFileMan>>id>>t>>w>>t>>l>>t>>c>>t>>rw>>t>>rl>>t>>rc;
-	PersonInfo malePI(id,w,l,c,rw,rl,rc);
-	malePI.showInfo();
-	fFileMan>>id>>t>>w>>t>>l>>t>>c>>t>>rw>>t>>rl>>t>>rc;
-	malePI.assign(id,w,l,c,rw,rl,rc);
-	malePI.showInfo();
-	fFileMan.close();*/
 
 	FemaleRecord	fmr;
 	MaleRecord		mr;
@@ -75,6 +64,7 @@ int main()
 		int idMan	=	fmr.getMatchedId(itHot,mr);
 		(fmr.getHotest())->m_femaleInfo.storeInfo(fFileMatchedStore);
 		mr.getElementById(idMan).m_maleInfo.storeInfo(fFileMatchedStore);
+		fFileMatchedStore<<std::endl;
 		fmr.deleteMatched(itHot,idMan,mr);
 	}
 		
