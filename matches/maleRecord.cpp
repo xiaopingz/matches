@@ -71,6 +71,7 @@ void	MaleRecord::vote(FemaleRecord& fr)
 				{
 					sumMax = sumTmp;
 					voteId = (*itFlag).second;
+					idMin  = voteId;
 				}
 				if( sumTmp==sumMax )
 				{

@@ -62,7 +62,9 @@ int main()
 		mr.vote(fmr);
 		vector<female_data>::iterator itHot	=	fmr.getHotest();
 		int idMan	=	fmr.getMatchedId(itHot,mr);
+		fFileMatchedStore<<"Female:";
 		(fmr.getHotest())->m_femaleInfo.storeInfo(fFileMatchedStore);
+		fFileMatchedStore<<" Male:";
 		mr.getElementById(idMan).m_maleInfo.storeInfo(fFileMatchedStore);
 		fFileMatchedStore<<std::endl;
 		fmr.deleteMatched(itHot,idMan,mr);
